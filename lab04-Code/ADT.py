@@ -2,6 +2,7 @@
 
 # Treat all the following code as being behind an abstraction layer, you shouldn't need to look at it!
 
+
 def make_city(name, lat, lon):
     """
     >>> city = make_city('Berkeley', 0, 1)
@@ -42,22 +43,29 @@ def get_lon(city):
     return city[2]
 
 
+# what passed into tree is a label and a single list.
+# Each element in the list means a branch of the tree.
+# Each element in the branch list must also be a tree.
+# Under the hood, a tree is a list like: [3, [2,3,4] ]
+
+
 def tree(label, branches=[]):
     """Construct a tree with the given label value and a list of branches."""
     if change_abstraction.changed:
         for branch in branches:
-            assert is_tree(branch), 'branches must be trees'
-        return {'label': label, 'branches': list(branches)}
+            assert is_tree(branch), "branches must be trees"
+        return {"label": label, "branches": list(branches)}
     else:
         for branch in branches:
-            assert is_tree(branch), 'branches must be trees'
+            assert is_tree(branch), "branches must be trees"
         return [label] + list(branches)
 
 
+# These two selectors: label and branches all return the copy of original tree root and branches.
 def label(tree):
     """Return the label value of a tree."""
     if change_abstraction.changed:
-        return tree['label']
+        return tree["label"]
     else:
         return tree[0]
 
@@ -65,11 +73,12 @@ def label(tree):
 def branches(tree):
     """Return the list of branches of the given tree."""
     if change_abstraction.changed:
-        return tree['branches']
+        return tree["branches"]
     else:
         return tree[1:]
 
 
+# All of the branches, leaves, node etc. must be lists. At minimum it's a list with one element.
 def is_tree(tree):
     """Returns True if the given tree is a tree, and False otherwise."""
     if change_abstraction.changed:
@@ -121,7 +130,7 @@ def print_tree(t, indent=0):
       6
         7
     """
-    print('  ' * indent + str(label(t)))
+    print("  " * indent + str(label(t)))
     for b in branches(t):
         print_tree(b, indent + 1)
 

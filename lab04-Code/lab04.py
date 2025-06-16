@@ -10,8 +10,10 @@ from ADT import (
     is_leaf,
     print_tree,
 )
+import doctest
 
 # ANSWER QUESTION q1
+
 
 # Problem 4.1.1
 def fst(p):
@@ -31,7 +33,7 @@ def pair(x, y):
     >>> snd(p)
     2
     """
-    "*** YOUR CODE HERE ***"
+    return lambda i: x if i == 0 else y
 
 
 def change_fst(p, v):
@@ -48,7 +50,7 @@ def change_fst(p, v):
     >>> snd(p)
     2
     """
-    "*** YOUR CODE HERE ***"
+    return pair(v, snd(p))
 
 
 def change_snd(p, v):
@@ -65,7 +67,7 @@ def change_snd(p, v):
     >>> snd(p)
     3
     """
-    "*** YOUR CODE HERE ***"
+    return pair(fst(p), v)
 
 
 # Problem 4.1.2.1
@@ -80,7 +82,9 @@ def distance(city1, city2):
     >>> distance(city3, city4)
     5.0
     """
-    "*** YOUR CODE HERE ***"
+    return sqrt(
+        (get_lat(city1) - get_lat(city2)) ** 2 + (get_lon(city1) - get_lon(city2)) ** 2
+    )
 
 
 # Problem 4.1.2.2
@@ -98,7 +102,13 @@ def closer_city(lat, lon, city1, city2):
     >>> closer_city(41.29, 174.78, bucharest, vienna)
     'Bucharest'
     """
-    "*** YOUR CODE HERE ***"
+    city = make_city("temp", lat, lon)
+    dist1 = distance(city, city1)
+    dist2 = distance(city, city2)
+    if dist1 < dist2:
+        return get_name(city1)
+    else:
+        return get_name(city2)
 
 
 # Problem 4.2.1
@@ -119,7 +129,11 @@ def deep(l):
     >>> len(a) == len(b)
     True
     """
-    "*** YOUR CODE HERE ***"
+    a0_copy = [x for x in l[0]]
+    a1_copy = [x for x in l[1]]
+    a2_copy = [x for x in l[2]]
+    b = [a0_copy, a1_copy, a2_copy]
+    return b
 
 
 # Problem 4.2.2
@@ -135,7 +149,7 @@ def my_reverse(l):
     >>> a
     ['S', 'I', 'C', 'P']
     """
-    "*** YOUR CODE HERE ***"
+    return [x for x in l[::-1]]  # Using slicing to reverse the list
 
 
 # Problem 4.2.3
@@ -157,7 +171,9 @@ def my_split(f, l):
     >>> studentIDs # You should not mutate the original list
     ['24122', '22122', '502024', '24183']
     """
-    "*** YOUR CODE HERE ***"
+    first = [x for x in l if f(x)]
+    second = [x for x in l if not f(x)]
+    return (first, second)
 
 
 # Problem 4.3.1
@@ -171,7 +187,14 @@ def preorder(t):
     >>> preorder(tree(2, [tree(4, [tree(6)])]))
     [2, 4, 6]
     """
-    "*** YOUR CODE HERE ***"
+    # first consider if there is only one layer
+    if is_leaf(t):
+        return [label(t)]
+    else:
+        result = [label(t)]
+        for b in branches(t):
+            result.extend(preorder(b))
+        return result
 
 
 # Problem 4.3.2
@@ -192,13 +215,25 @@ def nut_finder(t):
     >>> nut_finder(t)
     True
     """
-    "*** YOUR CODE HERE ***"
+    # consider one layer case
+    if is_leaf(t):
+        return label(t) == "nut"
+    else:
+        if label(t) == "nut":
+            return True
+        else:
+            for b in branches(t):
+                if nut_finder(b):
+                    return True
+            return False
 
 
 # Problem 4.3.3
 def sprout_leaves(t, values):
     """Sprout new leaves containing the data in values at each leaf in
     the original tree t and return the resulting tree.
+
+    For all leaves, do: leaves+=list(values)
 
     >>> t1 = tree(1, [tree(2), tree(3)])
     >>> print_tree(t1)
@@ -229,7 +264,18 @@ def sprout_leaves(t, values):
           1
           2
     """
-    "*** YOUR CODE HERE ***"
+    if is_leaf(t):
+        return tree(label(t), [tree(v) for v in values])
+    else:
+        # branches_list = branches(t)
+        for b in branches(t):
+            # if is_leaf(b):
+            #     b = tree(label(b), [tree(v) for v in values])
+            #     return tree(label(t), branches_list)
+            # else:
+            branch_list = []
+            branch_list.append(sprout_leaves(b, values))
+    return tree(label(t), branch_list)
 
 
 def insert_items(lst, entry, elem):
@@ -248,4 +294,14 @@ def insert_items(lst, entry, elem):
     >>> large_lst3 is large_lst
     True
     """
-    "*** YOUR CODE HERE ***"
+    i = 0
+    while i < len(lst):
+        if lst[i] == entry:
+            lst.insert(i + 1, elem)
+            i += 1
+        i += 1
+    return lst
+
+
+if __name__ == "__main__":
+    doctest.run_docstring_examples(insert_items, globals(), verbose=True)
