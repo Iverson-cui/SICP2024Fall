@@ -10,25 +10,20 @@ test = {
           >>> words = ['This', 'is', 'fun']
           >>> game = time_per_word(words, p)
           >>> get_all_words(game)
-          daf15693f205542b3a2e8a9440d919a0
-          # locked
+          ['This', 'is', 'fun']
           >>> get_all_times(game)
-          45f0b0e3833a8e8668ebb9872a79ec2a
-          # locked
+          [[3, 2, 1], [4, 2, 3]]
           >>> p = [[0, 2, 3], [2, 4, 7]]
           >>> game = time_per_word(['hello', 'world'], p)
           >>> get_word(game, word_index=1)
-          e9279c09912a8c34393b35d9601b4e2a
-          # locked
+          'world'
           >>> game["times"]
-          cd177bcb56912147d05c7a0a1a6de42b
-          # locked
+          [[2, 1], [2, 3]]
           >>> time(game, player_num=0, word_index=1)
-          232ad58b0f81f037ca6eb6a8f27a11b5
-          # locked
+          1
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {

@@ -360,7 +360,16 @@ def time_per_word(words, times_per_player):
     [[6, 3, 6, 2], [10, 6, 1, 2]]
     """
     # BEGIN PROBLEM 9
-    "*** YOUR CODE HERE ***"
+    times_player_word = []
+    for player_times in times_per_player:
+        player_word_times = []
+        for i in range(len(words)):
+            if i == 0:
+                player_word_times.append(player_times[i + 1] - player_times[i])
+            else:
+                player_word_times.append(player_times[i + 1] - player_times[i])
+        times_player_word.append(player_word_times)
+    return game(words, times_player_word)
     # END PROBLEM 9
 
 
@@ -381,9 +390,27 @@ def fastest_words(game):
     """
     # lists of indices for each player and each word
     player_indices = range(len(get_all_times(game)))
+    # player_num = len(player_indices)
     word_indices = range(len(get_all_words(game)))
     # BEGIN PROBLEM 10
-    "*** YOUR CODE HERE ***"
+    fastest = [[] for _ in player_indices]
+    times_lists = get_all_times(game)
+    min_time_array = []
+    for word_index in word_indices:
+        min_time = get_all_times(game)[0][word_index]
+        min_time_index = 0  # Reset for each word
+        for player_index in player_indices:
+            if time(game, player_index, word_index) < min_time:
+                min_time_index = player_index
+                min_time = time(game, player_index, word_index)
+        min_time_array.append(min_time_index)
+
+    # min_time_array is like[1,0,2,0,1]
+    temp_word_index = -1
+    for min_time_index in min_time_array:
+        temp_word_index += 1
+        fastest[min_time_index].append(get_word(game, temp_word_index))
+    return fastest
     # END PROBLEM 10
 
 
@@ -411,12 +438,14 @@ def game(words, times):
     return {"words": words, "times": times}
 
 
+# single word selector functions
 def get_word(game, word_index):
     """A utility function that gets the word with index word_index"""
     assert 0 <= word_index < len(game["words"]), "word_index out of range of words"
     return game["words"][word_index]
 
 
+# single player of single word selector functions
 def time(game, player_num, word_index):
     """A utility function for the time it took player_num to type the word at word_index"""
     assert word_index < len(game["words"]), "word_index out of range of words"
@@ -424,11 +453,13 @@ def time(game, player_num, word_index):
     return game["times"][player_num][word_index]
 
 
+# return a list of all words in the game
 def get_all_words(game):
     """A selector function for all the words in the game"""
     return game["words"]
 
 
+# return a list of all times in the game
 def get_all_times(game):
     """A selector function for all typing times for all players"""
     return game["times"]
@@ -439,7 +470,11 @@ def game_string(game):
     return f"game({get_all_words(game)}, {get_all_times(game)})"
 
 
-enable_multiplayer = False  # Change to True when you're ready to race.
+enable_multiplayer = True  # Change to True when you're ready to race.
+
+# p = [[5], [2], [4]]
+# fastest_words(game(["sdf"], p))
+
 
 ##########################
 # Command Line Interface #
