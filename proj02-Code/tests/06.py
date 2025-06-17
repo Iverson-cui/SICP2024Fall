@@ -36,23 +36,18 @@ test = {
           'code': r"""
           >>> big_limit = 10
           >>> sphinx_fixes("nice", "rice", big_limit)    # Substitute: n -> r
-          232ad58b0f81f037ca6eb6a8f27a11b5
-          # locked
+          1
           >>> sphinx_fixes("range", "rungs", big_limit)  # Substitute: a -> u, e -> s
-          fae562ba87ca875594496dfd22cc638d
-          # locked
+          2
           >>> sphinx_fixes("pill", "pillage", big_limit) # Don't substitute anything, length difference of 3.
-          e7749498d0ccda838a1931ea58535532
-          # locked
+          3
           >>> sphinx_fixes("roses", "arose", big_limit)  # Substitute: r -> a, o -> r, s -> o, e -> s, s -> e
-          111653e8191117eae88a0abcd3234199
-          # locked
+          5
           >>> sphinx_fixes("rose", "hello", big_limit)   # Substitute: r->h, o->e, s->l, e->l, length difference of 1.
-          111653e8191117eae88a0abcd3234199
-          # locked
+          5
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {

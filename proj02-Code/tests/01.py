@@ -9,17 +9,14 @@ test = {
           >>> ps = ['short', 'really long', 'tiny']
           >>> s = lambda p: len(p) <= 5
           >>> choose(ps, s, 0) # remember to put quotes ('') around strings!
-          fcd4a66fb87a232a73bc77b402f7fc66
-          # locked
+          'short'
           >>> choose(ps, s, 1)
-          fa68501441246603a0e012c640516606
-          # locked
+          'tiny'
           >>> choose(ps, s, 2)
-          387d7baf8ef552ea2b22c014cdad6c71
-          # locked
+          ''
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {

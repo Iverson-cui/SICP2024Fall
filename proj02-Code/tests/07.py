@@ -8,47 +8,34 @@ test = {
           'code': r"""
           >>> big_limit = 10
           >>> minimum_mewtations("wind", "wind", big_limit)
-          168e201af4950d5f73b97b178697ad92
-          # locked
+          0
           >>> minimum_mewtations("wird", "wiry", big_limit)
-          232ad58b0f81f037ca6eb6a8f27a11b5
-          # locked
+          1
           >>> minimum_mewtations("wird", "bird", big_limit)
-          232ad58b0f81f037ca6eb6a8f27a11b5
-          # locked
+          1
           >>> minimum_mewtations("wird", "wir", big_limit)
-          232ad58b0f81f037ca6eb6a8f27a11b5
-          # locked
+          1
           >>> minimum_mewtations("wird", "bwird", big_limit)
-          232ad58b0f81f037ca6eb6a8f27a11b5
-          # locked
+          1
           >>> minimum_mewtations("speling", "spelling", big_limit)
-          232ad58b0f81f037ca6eb6a8f27a11b5
-          # locked
+          1
           >>> minimum_mewtations("used", "use", big_limit)
-          232ad58b0f81f037ca6eb6a8f27a11b5
-          # locked
+          1
           >>> minimum_mewtations("hash", "ash", big_limit)
-          232ad58b0f81f037ca6eb6a8f27a11b5
-          # locked
+          1
           >>> minimum_mewtations("ash", "hash", big_limit)
-          232ad58b0f81f037ca6eb6a8f27a11b5
-          # locked
+          1
           >>> minimum_mewtations("roses", "arose", big_limit)     # roses -> aroses -> arose
-          fae562ba87ca875594496dfd22cc638d
-          # locked
+          2
           >>> minimum_mewtations("tesng", "testing", big_limit)   # tesng -> testng -> testing
-          fae562ba87ca875594496dfd22cc638d
-          # locked
+          2
           >>> minimum_mewtations("rlogcul", "logical", big_limit) # rlogcul -> logcul -> logicul -> logical
-          e7749498d0ccda838a1931ea58535532
-          # locked
+          3
           >>> minimum_mewtations("", "", big_limit) # nothing to nothing needs no edits
-          168e201af4950d5f73b97b178697ad92
-          # locked
+          0
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {

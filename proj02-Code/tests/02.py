@@ -8,26 +8,20 @@ test = {
           'code': r"""
           >>> dogs = about(['dogs', 'hounds'])
           >>> dogs('A paragraph about cats.')
-          df8da03783a099541734d4a2ec3eb9d0
-          # locked
+          False
           >>> dogs('A paragraph about dogs.')
-          a2120ea2b75d458847d5bdd773a83b9a
-          # locked
+          True
           >>> dogs('Release the Hounds!')
-          a2120ea2b75d458847d5bdd773a83b9a
-          # locked
+          True
           >>> dogs('"DOGS" stands for Department Of Geophysical Science.')
-          a2120ea2b75d458847d5bdd773a83b9a
-          # locked
+          True
           >>> dogs('Do gs and ho unds don\'t count')
-          df8da03783a099541734d4a2ec3eb9d0
-          # locked
+          False
           >>> dogs("AdogsParagraph")
-          df8da03783a099541734d4a2ec3eb9d0
-          # locked
+          False
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {

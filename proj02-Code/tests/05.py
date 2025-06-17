@@ -8,37 +8,28 @@ test = {
           'code': r"""
           >>> abs_diff = lambda w1, w2, limit: abs(len(w2) - len(w1))
           >>> autocorrect("cul", ["culture", "cult", "cultivate"], abs_diff, 10)
-          3b903e3a019da04728527fa8ebce576a
-          # locked
+          'cult'
           >>> autocorrect("cul", ["culture", "cult", "cultivate"], abs_diff, 0)
-          1a362506e22c8e03e22f57702cc77d4f
-          # locked
+          'cul'
           >>> autocorrect("wor", ["worry", "car", "part"], abs_diff, 10)
-          dd4a3aed7d6df189d8af77923cf50ddf
-          # locked
+          'car'
           >>> first_diff = lambda w1, w2, limit: 1 if w1[0] != w2[0] else 0
           >>> autocorrect("wrod", ["word", "rod"], first_diff, 1)
-          70ab68f4a49142a64c29be8bfbb4ee64
-          # locked
+          'word'
           >>> autocorrect("inside", ["idea", "inside"], first_diff, 0.5)
-          7c57452cb176c89d4cd931cd68f816a3
-          # locked
+          'inside'
           >>> autocorrect("inside", ["idea", "insider"], first_diff, 0.5)
-          cda0fbe31938d4af633db9d11047c25c
-          # locked
+          'idea'
           >>> autocorrect("outside", ["idea", "insider"], first_diff, 0.5)
-          0a62924e9e516400ecf94e6ff95e139a
-          # locked
+          'outside'
           >>> length_ratio = lambda w1, w2, limit: len(w2) / len(w1) # An asymmetric diff function
           >>> autocorrect("aaa", ["a"], length_ratio, 2) # typed_word ("aaa") is passed in as the first argument to a diff function
-          b844008180870cc36972f88e9fa6adb7
-          # locked
+          'a'
           >>> autocorrect("cats", ["panthers", "lions"], length_ratio, 2)
-          90fa40a100fb41e3b0662ac3420d5adb
-          # locked
+          'lions'
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {

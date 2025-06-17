@@ -7,47 +7,34 @@ test = {
         {
           'code': r"""
           >>> accuracy("12345", "12345") # This should return 100.0 (not the integer 100!)
-          14be02400b49f1fdcf6a7eb38454eddb
-          # locked
+          100.0
           >>> accuracy("a b c", "a b c")
-          14be02400b49f1fdcf6a7eb38454eddb
-          # locked
+          100.0
           >>> accuracy("a  b  c  d", "b  a  c  d")
-          b82372325ac59890d7e195d5a0bb65bb
-          # locked
+          50.0
           >>> accuracy("a b", "c d e")
-          a55ff5373a53b92a47b83c5732dd9679
-          # locked
+          0.0
           >>> accuracy("Cat", "cat") # the function is case-sensitive
-          a55ff5373a53b92a47b83c5732dd9679
-          # locked
+          0.0
           >>> accuracy("a b c d", "a d")
-          c708e2a1731add8a43ca4511ae848940
-          # locked
+          25.0
           >>> accuracy("abc", " ")
-          a55ff5373a53b92a47b83c5732dd9679
-          # locked
+          0.0
           >>> accuracy("a b \tc" , "a b c") # Tabs don't count as words
-          14be02400b49f1fdcf6a7eb38454eddb
-          # locked
+          100.0
           >>> accuracy("abc", "")
-          a55ff5373a53b92a47b83c5732dd9679
-          # locked
+          0.0
           >>> accuracy("", "abc")
-          a55ff5373a53b92a47b83c5732dd9679
-          # locked
+          0.0
           >>> accuracy("a b c d", "b c d")
-          a55ff5373a53b92a47b83c5732dd9679
-          # locked
+          0.0
           >>> accuracy("cats.", "cats") # punctuation counts
-          a55ff5373a53b92a47b83c5732dd9679
-          # locked
+          0.0
           >>> accuracy("", "") # Returns 100.0
-          14be02400b49f1fdcf6a7eb38454eddb
-          # locked
+          100.0
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {

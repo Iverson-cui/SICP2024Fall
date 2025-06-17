@@ -9,23 +9,19 @@ test = {
           >>> typed = ['I', 'have', 'begun']
           >>> prompt = ['I', 'have', 'begun', 'to', 'type']
           >>> print_progress({'id': 1, 'progress': 0.6})
-          2c3230b0d982b178e3f494375626a6aa
-          # locked
+          ID: 1 Progress: 0.6
           >>> report_progress(typed, prompt, 1, print_progress) # print_progress is called on the report
-          2c3230b0d982b178e3f494375626a6aa
-          8a6aacacfd7f4fb22948a7fae031cea7
-          # locked
+          ID: 1 Progress: 0.6
+          0.6
           >>> report_progress(['I', 'begun'], prompt, 2, print_progress)
-          091f53f4aadf3c74d31509e5b783b470
-          6fdd50e116438cd8ef30e5c75628b8a4
-          # locked
+          ID: 2 Progress: 0.2
+          0.2
           >>> report_progress(['I', 'hve', 'begun', 'to', 'type'], prompt, 3, print_progress)
-          5424ffa15cef19306c513fd38a904386
-          6fdd50e116438cd8ef30e5c75628b8a4
-          # locked
+          ID: 3 Progress: 0.2
+          0.2
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {
