@@ -5,7 +5,7 @@ test = {
     {
       'cases': [
         {
-          'answer': '0dbe78ed0cda2fc0a0c864bd0b5ab906',
+          'answer': 'A single tile that an Ant can be placed on and that connects to other Places',
           'choices': [
             r"""
             A single tile that an Ant can be placed on and that connects to
@@ -16,31 +16,31 @@ test = {
             'Where the bees start out in the game'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': 'What does a Place represent in the game?'
         },
         {
-          'answer': '0644e54a2c27cb35072fd8efd601c839',
+          'answer': 'When q is constructed',
           'choices': [
             'When p is constructed',
             'When q is constructed',
             'Never, it is always set to None'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': 'p is a Place whose entrance is q and exit is r (q and r are not None). When is p.entrance first set to a non-None value?'
         },
         {
-          'answer': 'db15261cd904275a869fc3ac31c2bfbb',
+          'answer': 'When p is constructed',
           'choices': [
             'When p is constructed',
             'When q is constructed',
             'Never, it is always set to None'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': 'p is a Place whose entrance is q and exit is r (q and r are not None). When is p.exit first set to a non-None value?'
         }
@@ -55,21 +55,17 @@ test = {
           >>> # Simple test for Place
           >>> place0 = Place('place_0')
           >>> print(place0.exit)
-          ea1d83a8accd402629763e4a1c598c45
-          # locked
+          None
           >>> print(place0.entrance)
-          ea1d83a8accd402629763e4a1c598c45
-          # locked
+          None
           >>> place1 = Place('place_1', place0)
           >>> place1.exit is place0
-          f36ee348506dce0a1c70d2d603d21c7f
-          # locked
+          True
           >>> place0.entrance is place1
-          f36ee348506dce0a1c70d2d603d21c7f
-          # locked
+          True
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {

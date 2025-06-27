@@ -5,7 +5,7 @@ test = {
     {
       'cases': [
         {
-          'answer': '7cf6d3012b933b956765c5cef7bd2e97',
+          'answer': 'instance, each HungryAnt instance chews independently of other HungryAnt instances',
           'choices': [
             r"""
             instance, each HungryAnt instance chews independently of other
@@ -19,12 +19,12 @@ test = {
             'class, all HungryAnt instances in the game chew simultaneously'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': 'Should chew_countdown be an instance or class attribute? Why?'
         },
         {
-          'answer': '0d56be86dbdcd00c43ec77687c56d795',
+          'answer': 'When it is not chewing, i.e. when its chew_countdown attribute is 0',
           'choices': [
             'When it is not chewing, i.e. when its chew_countdown attribute is 0',
             'When it is chewing, i.e. when its chew_countdown attribute is at least 1',
@@ -32,12 +32,12 @@ test = {
             'Whenever a Bee is in its place'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': 'When is a HungryAnt able to eat a Bee?'
         },
         {
-          'answer': '5a85e0960f3d70e948f535b8daf9320b',
+          'answer': 'A random Bee in the same place as itself',
           'choices': [
             'A random Bee in the same place as itself',
             'The closest Bee in front of it',
@@ -45,7 +45,7 @@ test = {
             'The closest Bee in either direction'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': 'When a HungryAnt is able to eat, which Bee does it eat?'
         }
@@ -60,20 +60,16 @@ test = {
           >>> # Testing HungryAnt parameters
           >>> hungry = HungryAnt()
           >>> HungryAnt.food_cost
-          03021ab33d8138d65d20e0e29a63e2f7
-          # locked
+          4
           >>> hungry.health
-          f8350ec306c6ded66ec5181d85e1da56
-          # locked
+          1
           >>> hungry.chew_duration
-          93a6f393519cdb7e80c716e7c2009036
-          # locked
+          3
           >>> hungry.chew_countdown
-          ca4502ed3a7078da4262913fdd77223b
-          # locked
+          0
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {
@@ -132,21 +128,18 @@ test = {
           >>> place.add_insect(super_bee)
           >>> hungry.action(gamestate)         # super_bee is no match for HungryAnt!
           >>> super_bee.health
-          ca4502ed3a7078da4262913fdd77223b
-          # locked
+          0
           >>> place.add_insect(wimpy_bee)
           >>> for _ in range(3):
           ...     hungry.action(gamestate)     # chewing...not eating
           >>> wimpy_bee.health
-          f8350ec306c6ded66ec5181d85e1da56
-          # locked
+          1
           >>> hungry.action(gamestate)         # back to eating!
           >>> wimpy_bee.health
-          ca4502ed3a7078da4262913fdd77223b
-          # locked
+          0
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {

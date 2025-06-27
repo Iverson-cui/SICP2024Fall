@@ -5,7 +5,7 @@ test = {
     {
       'cases': [
         {
-          'answer': '2104cbe3905596bfad12ab19ab87885e',
+          'answer': 'ThrowerAnt',
           'choices': [
             'ThrowerAnt',
             'ShortThrower',
@@ -13,12 +13,12 @@ test = {
             'Bee'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': 'What class do ShortThrower and LongThrower inherit from?'
         },
         {
-          'answer': '157ac48ebbb4ec3ab718df62ff303bcc',
+          'answer': 'There is no restriction on how far a regular ThrowerAnt can throw',
           'choices': [
             'A regular ThrowerAnt can only attack Bees at least 3 places away',
             'A regular ThrowerAnt can only attack Bees at most 3 places away',
@@ -26,12 +26,12 @@ test = {
             'There is no restriction on how far a regular ThrowerAnt can throw'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': 'What constraint does a regular ThrowerAnt have on its throwing distance?'
         },
         {
-          'answer': '2342d72d6f2fb572fcfb35d97c13f1f8',
+          'answer': 'A LongThrower can only attack Bees at least 5 places away',
           'choices': [
             'A LongThrower can only attack Bees at least 5 places away',
             'A LongThrower can only attack Bees at least 3 places away',
@@ -39,12 +39,12 @@ test = {
             'There is no restriction on how far a LongThrower can throw'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': 'What constraint does a LongThrower have on its throwing distance?'
         },
         {
-          'answer': '67255ef4c58ab7932d16645a50dbde47',
+          'answer': 'A ShortThrower can only attack Bees at most 3 places away',
           'choices': [
             'A ShortThrower can only attack Bees at least 3 places away',
             'A ShortThrower can only attack Bees at most 3 places away',
@@ -52,12 +52,12 @@ test = {
             'There is no restriction on how far a ShortThrower can throw'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': 'What constraint does a ShortThrower have on its throwing distance?'
         },
         {
-          'answer': '1d02248c837e212691cc4746cf6fce76',
+          'answer': 'The closest Bee in front of it within range',
           'choices': [
             'The closest Bee in front of it within range',
             'The closest Bee behind it within range',
@@ -65,7 +65,7 @@ test = {
             'Any Bee within range'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': r"""
           With the addition of these new ThrowerAnt subclasses, we must modify
@@ -83,22 +83,18 @@ test = {
           'code': r"""
           >>> # Testing Long/ShortThrower parameters
           >>> ShortThrower.food_cost
-          62f5becf14884ba4e68499843298094e
-          # locked
+          2
           >>> LongThrower.food_cost
-          62f5becf14884ba4e68499843298094e
-          # locked
+          2
           >>> short_t = ShortThrower()
           >>> long_t = LongThrower()
           >>> short_t.health
-          f8350ec306c6ded66ec5181d85e1da56
-          # locked
+          1
           >>> long_t.health
-          f8350ec306c6ded66ec5181d85e1da56
-          # locked
+          1
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {
