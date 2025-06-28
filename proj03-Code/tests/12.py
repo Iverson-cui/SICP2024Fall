@@ -5,7 +5,7 @@ test = {
     {
       'cases': [
         {
-          'answer': '4349e8350fdc173a3ae4dffb2c014ecd',
+          'answer': 'ScubaThrower',
           'choices': [
             'ScubaThrower',
             'Ant',
@@ -13,12 +13,12 @@ test = {
             'GameState'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': 'What class does QueenAnt inherit from?'
         },
         {
-          'answer': '1f7bf7b671efed07c4c739a2b1d549fe',
+          'answer': "Attacks the nearest bee and doubles the damage of all the ants behind her (that haven't already been doubled)",
           'choices': [
             r"""
             Attacks the nearest bee and doubles the damage of all the ants
@@ -38,12 +38,12 @@ test = {
             """
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': 'What does the true QueenAnt do each turn?'
         },
         {
-          'answer': '0c1902ae1ead0e34b7e1726fa6b39349',
+          'answer': 'If a Bee reaches the end of a tunnel or the true QueenAnt dies',
           'choices': [
             'If a Bee reaches the end of a tunnel or the true QueenAnt dies',
             'If there are no ants left in the colony',
@@ -51,7 +51,7 @@ test = {
             'If a Bee attacks the true QueenAnt'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': 'Under what circumstances do Ants lose the game?'
         }
@@ -65,15 +65,13 @@ test = {
           'code': r"""
           >>> # Testing QueenAnt parameters
           >>> QueenAnt.food_cost
-          d50a70ca2d4344e2dee81e8a7e1064e6
-          # locked
+          7
           >>> queen = QueenAnt()
           >>> queen.health
-          f8350ec306c6ded66ec5181d85e1da56
-          # locked
+          1
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {
@@ -407,7 +405,7 @@ test = {
           >>> ants.Insect.zero_health_callback = original_death_callback
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {

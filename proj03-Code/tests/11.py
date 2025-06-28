@@ -5,7 +5,7 @@ test = {
     {
       'cases': [
         {
-          'answer': 'f79b68cb2aaac8cd4ab0e49b17347556',
+          'answer': "It is waterproof, so its health won't be reduced to 0 when it is placed in a Water Place",
           'choices': [
             r"""
             It is waterproof, so its health won't be reduced to 0 when it is
@@ -18,12 +18,12 @@ test = {
             'It throws water pellets instead of leaves'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': 'How is a ScubaThrower different from a regular ThrowerAnt?'
         },
         {
-          'answer': 'e6fb1e56c024811a098edae1ab707fba',
+          'answer': 'name, is_waterproof, food_cost',
           'choices': [
             'name, is_waterproof, food_cost',
             'food_cost, action, damage',
@@ -31,7 +31,7 @@ test = {
             'name, nearest_bee, is_waterproof'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': r"""
           Which inherited attributes and/or methods should ScubaThrower
@@ -49,14 +49,12 @@ test = {
           >>> # Testing ScubaThrower parameters
           >>> scuba = ScubaThrower()
           >>> ScubaThrower.food_cost
-          33619aeb86b1e8373de8f936435956ec
-          # locked
+          6
           >>> scuba.health
-          f8350ec306c6ded66ec5181d85e1da56
-          # locked
+          1
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         }
       ],
@@ -76,14 +74,12 @@ test = {
           >>> ant = ScubaThrower()
           >>> water.add_insect(ant)
           >>> ant.place is water
-          f36ee348506dce0a1c70d2d603d21c7f
-          # locked
+          True
           >>> ant.health
-          f8350ec306c6ded66ec5181d85e1da56
-          # locked
+          1
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {
@@ -93,14 +89,12 @@ test = {
           >>> ant = ThrowerAnt()
           >>> water.add_insect(ant)
           >>> ant.place is water
-          283113db14c20c490d6afa7240f170f0
-          # locked
+          False
           >>> ant.health
-          ca4502ed3a7078da4262913fdd77223b
-          # locked
+          0
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {

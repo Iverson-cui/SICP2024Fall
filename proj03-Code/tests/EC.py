@@ -10,20 +10,16 @@ test = {
           >>> slow = SlowThrower()
           >>> scary = ScaryThrower()
           >>> SlowThrower.food_cost
-          03021ab33d8138d65d20e0e29a63e2f7
-          # locked
+          4
           >>> ScaryThrower.food_cost
-          33619aeb86b1e8373de8f936435956ec
-          # locked
+          6
           >>> slow.health
-          f8350ec306c6ded66ec5181d85e1da56
-          # locked
+          1
           >>> scary.health
-          f8350ec306c6ded66ec5181d85e1da56
-          # locked
+          1
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {
@@ -37,22 +33,19 @@ test = {
           >>> gamestate.time = 1
           >>> bee.action(gamestate)
           >>> bee.place.name # SlowThrower should cause slowness on odd turns
-          f4c2b495810c0ac98dfbb41cbc85ca32
-          # locked
+          'tunnel_0_4'
           >>> gamestate.time += 1
           >>> bee.action(gamestate)
           >>> bee.place.name # SlowThrower should cause slowness on odd turns
-          c7f56864e8edc95565a598b3e347600b
-          # locked
+          'tunnel_0_3'
           >>> for _ in range(3):
           ...    gamestate.time += 1
           ...    bee.action(gamestate)
           >>> bee.place.name
-          1fe58b9d1d3c3c8f939f3b09beb9a5b8
-          # locked
+          'tunnel_0_1'
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {
@@ -65,19 +58,16 @@ test = {
           >>> scary.action(gamestate)
           >>> bee.action(gamestate)
           >>> bee.place.name # ScaryThrower should scare for two turns
-          72751cb9723c2581470185429fe51c86
-          # locked
+          'tunnel_0_5'
           >>> bee.action(gamestate)
           >>> bee.place.name # ScaryThrower should scare for two turns
-          6a080a0a4e17d4e42511e45193889434
-          # locked
+          'tunnel_0_6'
           >>> bee.action(gamestate)
           >>> bee.place.name
-          72751cb9723c2581470185429fe51c86
-          # locked
+          'tunnel_0_5'
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {
@@ -92,18 +82,15 @@ test = {
           >>> scary.action(gamestate)
           >>> bee.action(gamestate)
           >>> bee.place.name # ScaryThrower should scare for two turns
-          72751cb9723c2581470185429fe51c86
-          # locked
+          'tunnel_0_5'
           >>> harvester.health
-          f8350ec306c6ded66ec5181d85e1da56
-          # locked
+          1
           >>> bee.action(gamestate)
           >>> harvester.health
-          ca4502ed3a7078da4262913fdd77223b
-          # locked
+          0
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {
